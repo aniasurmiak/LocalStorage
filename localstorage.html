@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Local Storage</title>
+</head>
+
+<body>
+  <h1>Local Storage</h1>
+  <legend>Insert Data</legend>
+  <input id="inpKey" type="text" placeholder="key">
+  <input id="inpValue" type="text" placeholder="value">
+  <button type="button" id="insertData">Insert</button>
+  <fieldset>
+    <legend>Locally Stored Data</legend>
+    <div id="output"></div>
+  </fieldset>
+</body>
+<script type="text/javascript">
+  const key = document.getElementById('inpKey');
+  const value = document.getElementById('inpValue');
+  const btn = document.getElementById('insertData');
+  const output = document.getElementById('output');
+  btn.onclick = function () {
+
+
+    const key1 = key.value;
+    const val1 = value.value;
+
+    if (key1 && val1) {
+      localStorage.setItem(key1, val1);
+
+    }
+  }
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+
+    output.innerHTML += key + ':' + value + '<br/>';
+  }
+
+</script>
+
+</html>
